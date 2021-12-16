@@ -8,6 +8,7 @@ import Services from "./services/Services";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import * as service from './services/worksServices'
+import {Link} from "react-router-dom";
 import data from "bootstrap/js/src/dom/data";
 
 const AddWork = (props)=>{
@@ -94,9 +95,9 @@ const AddWork = (props)=>{
                            <Form.Control type="time" placeholder="Enter email" name='timeTo' value={items.timeTo} onChange={handleChange}/>
                        </Form.Group>
                        {(id)?
-                           <Button variant="primary" type="button" onClick={updateHandler}>
+                           <Link variant="primary" type="button" className='btn btn-primary' onClick={updateHandler} to='/'>
                                 Atnaujinti
-                           </Button>
+                           </Link>
                            :
                            <Button variant="primary" type="submit">
                                Saugoti

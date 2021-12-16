@@ -18,8 +18,7 @@ const WorkTable = (props) => {
                 <th>Klientas</th>
                 <th>Suteikta paslauga</th>
                 <th>Aprašymas</th>
-                <th>Trukmė nuo</th>
-                <th>Trukmė iki</th>
+                <th>Trukmė</th>
                 <th>Šalinimas</th>
                 <th>Redagavimas</th>
             </tr>

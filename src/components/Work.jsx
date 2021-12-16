@@ -3,21 +3,18 @@ import {Link} from 'react-router-dom'
 const Work = (props) => {
 
 
-
-/*
-    const timeFromInMin = Number(props.timeFrom.split(":")[0])*60 + Number(props.timeFrom.split(":")[1])
-    const timeToInMin = Number(props.timeTo.split(":")[0])*60 + Number(props.timeTo.split(":")[1])
-    let timeMin = timeToInMin - timeFromInMin
-    let h = 0
-    let min = 60
-    while(timeMin >= min){
-        timeMin -= min
-        h++
+    const diff = (start, end)=> {
+        start = start.split(":");
+        end = end.split(":");
+        const startDate = new Date(0, 0, 0, start[0], start[1], 0);
+        const endDate = new Date(0, 0, 0, end[0], end[1], 0);
+        let diff = endDate.getTime() - startDate.getTime();
+        let hours = Math.floor(diff / 1000 / 60 / 60);
+        diff -= hours * 1000 * 60 * 60;
+        const minutes = Math.floor(diff / 1000 / 60);
+        return (hours < 9 ? "0" : "") + hours + ":" + (minutes < 9 ? "0" : "") + minutes;
     }
-    const time = h.toString() + ":" + (timeMin < 10 ? "0" : "") + timeMin.toString()
 
-     !!!!  ->   (props.timeFrom && funkcija laiko)
-*/
 
     const getId = () => {
         props.onDelete(props.id)
@@ -29,8 +26,7 @@ const Work = (props) => {
             <td>{props.company}</td>
             <td>{props.service}</td>
             <td>{props.description}</td>
-            <td>{props.timeFrom}</td>
-            <td>{props.timeTo}</td>
+            <td>{diff(props.timeFrom, props.timeTo)}</td>
             <td><a href="/#" onClick={getId}>Šalinti</a></td>
             <td><Link key={props.id} to={`work/update/${props.id}`}>Redaguoti</Link></td>
         </tr>

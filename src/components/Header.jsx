@@ -1,5 +1,6 @@
 import {Navbar} from "react-bootstrap";
 import {Container} from "react-bootstrap";
+import User from './User'
 
 const Header = ()=>{
     return(
@@ -11,7 +12,7 @@ const Header = ()=>{
                     </Navbar.Brand>
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            KITM praktika
+                            <User />
                         </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>

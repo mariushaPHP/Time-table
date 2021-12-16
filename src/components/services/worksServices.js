@@ -41,8 +41,6 @@ export const updateWork=(id, data)=>{
         .collection('works')
         .doc(id)
         .set(data)
-    console.log(data)
-    console.log()
 }
 
 export const getWorkById=(item, id)=>{
